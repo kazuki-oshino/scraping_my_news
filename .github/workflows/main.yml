@@ -41,7 +41,7 @@ jobs:
           git add -N .
           if ! git diff --exit-code --quiet
           then
-            git config user.name "kazukiosActions"
+            git config user.name "kazukios actions"
             git config user.email "actions@gmail.com"
             git add .
             git commit -m "update yahoo news csv"

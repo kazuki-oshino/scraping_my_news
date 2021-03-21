@@ -26,4 +26,3 @@ def to_csv_yahoo():
 
 if __name__ == '__main__':
     to_csv_yahoo()
-
