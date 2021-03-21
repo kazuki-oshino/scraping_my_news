@@ -15,9 +15,7 @@ def to_csv_yahoo():
     # トピックスを抽出
     i = 0
     for a in html.select('#uamods-topics div div div ul li a'):
-        # 出力処理2
-        print(list(a.strings)[0])
-        print(a.get('href'))
+        # 出力処理
         df.loc[i] = [list(a.strings)[0], a.get('href')]
         i += 1
 
