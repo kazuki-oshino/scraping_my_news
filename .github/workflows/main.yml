@@ -47,3 +47,4 @@ jobs:
             git commit -m "update yahoo news csv"
             git pull
             git push origin master
+          fi
