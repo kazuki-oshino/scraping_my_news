@@ -1,12 +1,29 @@
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
 
 
+def to_csv_yahoo():
+    # yahoo!ニュースのレスポンス取得
+    response = requests.get('https://news.yahoo.co.jp')
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+    # BeautifulSoupを作成
+    html = BeautifulSoup(response.content, 'html.parser')
+
+    df = pd.DataFrame(columns=['pickup', 'url'])
+
+    # トピックスを抽出
+    i = 0
+    for a in html.select('#uamods-topics div div div ul li a'):
+        # 出力処理
+        print(list(a.strings)[0])
+        print(a.get('href'))
+        df.loc[i] = [list(a.strings)[0], a.get('href')]
+        i += 1
+
+    df.to_csv("yahoo.csv", index=False)
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    to_csv_yahoo()
 
