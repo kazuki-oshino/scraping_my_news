@@ -39,7 +39,7 @@ jobs:
       - name: Commit and Push # 実行した結果をプッシュして変更をレポジトリに反映
         run: |
           git config user.name "kazukios"
-          git config user.email "slash0juice@gmail.com"
+          git config user.email "slashwewasddw@gmail.com"
           git add .
           git commit -m "update yahoo news csv"
           git pull
