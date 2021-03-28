@@ -56,4 +56,6 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: rsync deploy
-        run: rsync -auzrv -e "ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022" --delete csv/ xs835784@183.181.81.62:/home/xs835784//techgamelife.net/public_html/worth_news/assets/assets/csv/
+        env:
+          TO_S: ${{ secrets.TO_S }}
+        run: rsync -auzrv -e "ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022" --delete csv/ $TO_S
