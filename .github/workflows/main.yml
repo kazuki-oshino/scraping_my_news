@@ -31,30 +31,17 @@ jobs:
       - name: Install dependencies
         run: | 
           python -m pip install --upgrade pip
-          pip install pandas
-          pip install requests
-          pip install beautifulsoup4
+          pip install -r requirements.txt
 
       - name: Run main.py 
         run: |
           python main.py
-          
-#      - name: Commit and Push
-#        run: |
-#          git add -N .
-#          if ! git diff --exit-code --quiet
-#          then
-#            git config user.name "kazukios actions"
-#            git config user.email "actions@gmail.com"
-#            git add .
-#            git commit -m "update yahoo news csv"
-#            git pull
-#            git push origin master
-#          fi
+
       - name: ssh key generate
         run: echo "$SSH_PRIVATE_KEY" > key && chmod 600 key
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: rsync deploy
         env:
           TO_S: ${{ secrets.TO_S }}
