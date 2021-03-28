@@ -19,7 +19,7 @@ def to_csv_yahoo():
         df.loc[i] = [list(a.strings)[0], a.get('href')]
         i += 1
 
-    df.to_csv("yahoo.csv", index=False)
+    df.to_csv("csv/yahoo.csv", index=False)
 
 
 if __name__ == '__main__':
