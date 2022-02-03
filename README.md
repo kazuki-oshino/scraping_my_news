@@ -5,7 +5,6 @@
 主にGitHub Actionsの使用方法を確認するサンプルです。  
 GitHub Actionsを用いて以下を行っています。  
  - Pythonコード実行→csv作成
- - リポジトリへcsvファイルのコミット/プッシュ
  - Xserverへ作成したcsvファイルの送信
   
   
